@@ -1,0 +1,14 @@
+# excluir archivo de sistema de MAC
+.DS_Store
+
+# excluir imágenes
+assets/imagenes/*
+
+
+fonts/* 
+
+# excluir el contenido de las imágenes pero no el folder
+!assets/imagenes/.gitkeep
+
+# excluir ajustes de vscode
+.vscode
