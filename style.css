@@ -1,6 +1,8 @@
 @font-face {
-  font-family: "Zetafonts.woff2";
-  src: url("./fonts/Zetafonts.woff2") format("woff2");
+  font-family: "Marion.woff2";
+  /* src: url("./fonts/Marion.woff2") format("woff2"); */
+  src: url("https://res.cloudinary.com/alexiavilar/raw/upload/v1612453108/Portafolio/Marion_The_Essentials_b8crkp.woff2")
+    format("woff2");
   font-style: normal;
   font-weight: 400;
 }
@@ -17,5 +19,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Zetafonts.woff2";
+  font-family: "Marion.woff2";
 }
