@@ -1,6 +1,5 @@
 @font-face {
-  font-family: "Marion.woff2";
-  /* src: url("./fonts/Marion.woff2") format("woff2"); */
+  font-family: "Marion";
   src: url("https://res.cloudinary.com/alexiavilar/raw/upload/v1612453108/Portafolio/Marion_The_Essentials_b8crkp.woff2")
     format("woff2");
   font-style: normal;
@@ -10,7 +9,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
 
 body {
+  margin: 30px;
+  background-color: rgb(248, 246, 241);
   font-family: "Merriweather", serif;
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 2fr 4fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 h1,
@@ -19,5 +26,82 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Marion.woff2";
+  font-family: "Marion";
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 0.5fr 1.5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "me-icon nav"
+    "titulo texto-principal";
+  position: relative;
+}
+
+.titulo {
+  font-family: "Marion";
+  font-weight: lighter;
+  grid-area: titulo;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 180px;
+  line-height: 150px;
+  color: rgb(10, 43, 157);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.texto-principal {
+  grid-area: texto-principal;
+  font-family: "Marion";
+  font-size: 100px;
+  margin-left: 50px;
+  color: rgb(10, 43, 157);
+  line-height: 83px;
+  padding-top: 100px;
+  margin-bottom: 400px;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.nav a:hover {
+  color: rgb(255, 4, 251);
+  outline-color: rgb(255, 4, 251);
+  outline-style: solid;
+  outline-width: 0.2px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ul li a {
+  text-decoration: none;
+  color: rgb(10, 43, 157);
+}
+
+.nav ul {
+  text-align: end;
+  font-size: 20pt;
+  font-family: "Marion";
+  position: static;
+  line-height: 30px;
+}
+
+.me-icon {
+  width: 120px;
+  height: 190px;
+}
+
+.proyectos {
+  display: flex;
+}
+.proyectos img a:hover {
+  color: rgb(10, 43, 157);
+  fill-opacity: 50;
 }
