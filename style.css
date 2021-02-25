@@ -29,6 +29,13 @@ h6 {
   font-family: "Marion";
 }
 
+.proyectos-indiv h2 {
+  font-size: 100pt;
+  font-weight: lighter;
+  line-height: 140px;
+  color: rgb(10, 43, 157);
+}
+
 .header {
   display: grid;
   grid-template-columns: 0.5fr 1.5fr;
@@ -101,7 +108,6 @@ ul li a {
 .proyectos {
   display: flex;
 }
-.proyectos img a:hover {
+.proyectos a:hover img {
   color: rgb(10, 43, 157);
-  fill-opacity: 50;
 }
