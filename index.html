@@ -13,7 +13,7 @@
   <body>
     <!-- HTML:Markup - Comienza aquí -->
 
-    <header class="header">
+    <header class="header grid">
       <nav class="nav">
         <ul>
           <li><a href="#">home</a></li>
@@ -23,9 +23,13 @@
         </ul>
       </nav>
 
-      <div class="me-icon"><img src="iconos/me-icon.png" /></div>
+      <div class="me-icon">
+        <img
+          src="https://res.cloudinary.com/alexiavilar/image/upload/v1614872170/Portafolio/me-icon_gye0o2.png"
+        />
+      </div>
 
-      <h1 class="titulo">
+      <h1 class="titulo absolute">
         Alexia
         <br />
         Vilar
@@ -35,31 +39,80 @@
     </header>
 
     <div class="proyectos">
-      <div class="editorial">
+      <div class="editorial" data-categoria="Editorial">
         <a href="">
-          <img src="proyectos/poemario.jpg" alt="" class="proyecto-img" />
+          <img
+            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876876/Portafolio/proyectos/poemario_zljslc.jpg"
+            alt="poemario"
+            width="450"
+            height="450"
+            loading="lazy"
+          />
         </a>
-        <h3 class="proyecto-titulo">editorial</h3>
+        <div class="mascara absolute">
+          <h3>editorial</h3>
+        </div>
       </div>
 
-      <div class="fotografia">
-        <img src="proyectos/foto-analoga.jpg" alt="" class="proyecto-img" />
-        <h3 class="proyecto-titulo">fotografía</h3>
+      <div class="fotografia" data-categoria="Fotografia">
+        <a href="">
+          <img
+            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/foto-analoga_utyqmj.jpg"
+            alt="foto"
+            width="450"
+            height="450"
+            loading="lazy"
+          />
+        </a>
+        <div class="mascara absolute">
+          <h3>fotografía</h3>
+        </div>
       </div>
 
-      <div class="diseño-web">
-        <img src="proyectos/diseño-web.jpg" alt="" class="proyecto-img" />
-        <h3 class="proyecto-titulo">diseño web</h3>
+      <div class="diseno-web" data-categoria="Diseño-web">
+        <a href="">
+          <img
+            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
+            alt="web"
+            width="450"
+            height="450"
+            loading="lazy"
+          />
+        </a>
+        <div class="mascara absolute">
+          <h3>diseño web</h3>
+        </div>
       </div>
 
-      <div class="diseño-app">
-        <img src="proyectos/diseño-app.jpg" alt="" class="proyecto-img" />
-        <h3 class="proyecto-titulo">UX-UI</h3>
+      <!-- Ejemplo -->
+      <div class="diseno-app" data-categoria="UX-UI">
+        <a href="">
+          <img
+            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-app_rdz41w.jpg"
+            alt="app"
+            width="450"
+            height="450"
+            loading="lazy"
+          />
+        </a>
+        <div class="mascara absolute">
+          <h3>UX-UI</h3>
+        </div>
       </div>
 
-      <div class="tipografia">
-        <img src="proyectos/diseño-tipo.jpg" alt="" class="proyecto-img" />
-        <h3 class="proyecto-titulo">diseño tipográfico</h3>
+      <div class="tipografia" data-categoria="diseño tipográfico">
+        <a href="">
+          <img
+            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-tipo_kld3un.jpg"
+            alt="tipografia"
+            width="450"
+            height="450"
+            loading="lazy"
+          />
+        </a>
+        <div class="mascara absolute">
+          <h3>diseño tipográfico</h3>
+        </div>
       </div>
     </div>
 
