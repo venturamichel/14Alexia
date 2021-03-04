@@ -1,3 +1,4 @@
+/* Tipografía */
 @font-face {
   font-family: "Marion";
   src: url("https://res.cloudinary.com/alexiavilar/raw/upload/v1612453108/Portafolio/Marion_The_Essentials_b8crkp.woff2")
@@ -8,16 +9,34 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
 
-body {
-  margin: 30px;
-  background-color: rgb(248, 246, 241);
-  font-family: "Merriweather", serif;
+/* Variables */
+:root {
+  --primario: rgb(10, 43, 157);
+  --primario-claro: #a2f598;
+  --primario-fuerte: #279e19;
+  --secundario: rgb(255, 4, 251);
+  --secundario-claro: #b2b3b2;
+  --secundario-fuerte: #000000;
+  --bg: rgb(248, 246, 241);
+  --font-family-titulos: "Marion";
+  --font-family-textos: "Merriweather";
+  --font-size: 17px;
+  /* --h1: 180px;
+  --h2: 130px;
+  --h3: 90px;
+  --h4: 33px;
+  --h5: 24px;
+  --h6: 17px; */
 }
 
-.header {
-  display: grid;
-  grid-template-rows: 2fr 4fr;
-  grid-template-columns: 1fr 5fr;
+/* Base */
+body {
+  font-family: var(--font-family-textos);
+  font-weight: 400;
+  margin: 30px;
+  background-color: var(--bg);
+  cursor: url("https://res.cloudinary.com/alexiavilar/image/upload/v1614872170/Portafolio/mouse-01_xagjin.svg"),
+    auto;
 }
 
 h1,
@@ -26,18 +45,61 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Marion";
+  font-family: var(--font-family-titulos);
+  font-weight: lighter;
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+h6 {
+  font-size: var(--h6);
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ul li a {
+  text-decoration: none;
+  color: var(--primario);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Componentes */
+.header {
+  grid-template-rows: 2fr 4fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 .proyectos-indiv h2 {
-  font-size: 100pt;
+  font-size: 130px;
   font-weight: lighter;
   line-height: 140px;
-  color: rgb(10, 43, 157);
+  color: var(--primario);
 }
 
 .header {
-  display: grid;
   grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 0.5fr 1.5fr;
   gap: 0px 0px;
@@ -48,14 +110,14 @@ h6 {
 }
 
 .titulo {
-  font-family: "Marion";
+  font-family: var(--font-family-titulos);
   font-weight: lighter;
   grid-area: titulo;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-size: 180px;
   line-height: 150px;
-  color: rgb(10, 43, 157);
+  color: var(--primario);
   position: absolute;
   left: 0;
   top: 0;
@@ -63,10 +125,10 @@ h6 {
 
 .texto-principal {
   grid-area: texto-principal;
-  font-family: "Marion";
+  font-family: var(--font-family-titulos);
   font-size: 100px;
   margin-left: 50px;
-  color: rgb(10, 43, 157);
+  color: var(--primario);
   line-height: 83px;
   padding-top: 100px;
   margin-bottom: 400px;
@@ -77,25 +139,16 @@ h6 {
 }
 
 .nav a:hover {
-  color: rgb(255, 4, 251);
-  outline-color: rgb(255, 4, 251);
+  color: var(--secundario);
+  outline-color: var(--secundario);
   outline-style: solid;
   outline-width: 0.2px;
-}
-
-ul li {
-  list-style-type: none;
-}
-
-ul li a {
-  text-decoration: none;
-  color: rgb(10, 43, 157);
 }
 
 .nav ul {
   text-align: end;
   font-size: 20pt;
-  font-family: "Marion";
+  font-family: var(--font-family-titulos);
   position: static;
   line-height: 30px;
 }
@@ -106,8 +159,127 @@ ul li a {
 }
 
 .proyectos {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 60px;
+  margin-left: 400px;
+}
+
+.proyectos > * {
+  position: relative;
+}
+
+/* .mascara {
+  width: 450px;
+  height: 450px;
+  background: var(--primario);
+  opacity: 0;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.proyectos:hover .mascara {
+  opacity: 0.6;
+  text-align: justify;
+  font-size: 90px;
+  font-weight: lighter;
+  color: white;
+  padding: 30px;
+  top: 0;
+  left: 0;
+} */
+
+.editorial {
+  width: 450px;
+  height: 450px;
+  /* flex-basis: 450px; */
+}
+
+.fotografia {
+  width: 450px;
+  height: 450px;
+  /* flex-basis: 450px; */
+}
+
+.diseno-web {
+  width: 450px;
+  height: 450px;
+  /* flex-basis: 450px; */
+}
+
+.diseno-app {
+  width: 450px;
+  height: 450px;
+  /* flex-basis: 450px; */
+}
+
+.diseno-app[UX-UI] {
+  position:absolute;
+  /* flex-basis: 450px; */
+}
+
+.tipografia {
+  width: 450px;
+  height: 450px;
+  /* flex-basis: 450px; */
+}
+
+.proyectos img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Utilities */
+.flex {
   display: flex;
 }
-.proyectos a:hover img {
-  color: rgb(10, 43, 157);
+
+.flex-center {
+  justify-items: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-center {
+  place-content: center;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.outline {
+  outline: 2px solid black;
 }
