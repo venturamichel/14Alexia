@@ -178,6 +178,31 @@ a {
   position: relative;
 }
 
+.hero {
+ display: grid;
+ place-content: center;
+}
+
+.hero .hero-titulo{
+  font-family: var(--font-family-titulos);
+  font-weight: bolder;
+  font-size: 40px;
+  line-height: 150px;
+  color: var(--primario);
+  text-align: center;
+
+}
+
+.hero .intro{
+  display:flex;
+  flex-direction:row;
+
+}
+
+.hero {
+  
+}
+
 /* .mascara {
   width: 450px;
   height: 450px;
