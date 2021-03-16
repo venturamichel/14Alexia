@@ -1,25 +1,24 @@
 /* Tipografía */
 @font-face {
-  font-family: "Marion";
-  src: url("https://res.cloudinary.com/alexiavilar/raw/upload/v1612453108/Portafolio/Marion_The_Essentials_b8crkp.woff2")
-    format("woff2");
+  font-family: 'Marion';
+  src: url('https://res.cloudinary.com/alexiavilar/raw/upload/v1612453108/Portafolio/Marion_The_Essentials_b8crkp.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap'); 
 
 /* Variables */
 :root {
-  --primario: rgb(10, 43, 157);
+  --primario: 10, 43, 157;
   --primario-claro: #a2f598;
   --primario-fuerte: #279e19;
   --secundario: rgb(255, 4, 251);
   --secundario-claro: #b2b3b2;
   --secundario-fuerte: #000000;
   --bg: rgb(248, 246, 241);
-  --font-family-titulos: "Marion";
-  --font-family-textos: "Merriweather";
+  --font-family-titulos: 'Marion';
+  --font-family-textos: 'Merriweather';
   --font-size: 17px;
   /* --h1: 180px;
   --h2: 130px;
@@ -32,21 +31,16 @@
 /* Base */
 body {
   font-family: var(--font-family-textos);
+  font-size: var(--font-size);
   font-weight: 400;
   margin: 30px;
   background-color: var(--bg);
-  cursor: url("https://res.cloudinary.com/alexiavilar/image/upload/v1614872170/Portafolio/mouse-01_xagjin.svg"),
-    auto;
+  cursor: url('https://res.cloudinary.com/alexiavilar/image/upload/v1614872170/Portafolio/mouse-01_xagjin.svg'), auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-titulos);
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 h1 {
@@ -73,39 +67,17 @@ h6 {
   font-size: var(--h6);
 }
 
-ul li {
-  list-style-type: none;
-}
-
-ul li a {
-  text-decoration: none;
-  color: var(--primario);
-}
-
 a {
+  color: var(--primario);
   text-decoration: none;
 }
 
 /* Componentes */
 .header {
-  grid-template-rows: 2fr 4fr;
-  grid-template-columns: 1fr 5fr;
-}
-
-.proyectos-indiv h2 {
-  font-size: 130px;
-  font-weight: lighter;
-  line-height: 140px;
-  color: var(--primario);
-}
-
-.header {
   grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 0.5fr 1.5fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "me-icon nav"
-    "titulo texto-principal";
+  grid-template-areas: 'me-icon nav' 'titulo texto-principal';
   position: relative;
 }
 
@@ -130,19 +102,12 @@ a {
   margin-left: 50px;
   color: var(--primario);
   line-height: 83px;
-  padding-top: 100px;
+  /* padding-top: 100px; */
   margin-bottom: 400px;
 }
 
 .nav {
   grid-area: nav;
-}
-
-.nav a:hover {
-  color: var(--secundario);
-  outline-color: var(--secundario);
-  outline-style: solid;
-  outline-width: 0.2px;
 }
 
 .nav ul {
@@ -151,6 +116,13 @@ a {
   font-family: var(--font-family-titulos);
   position: static;
   line-height: 30px;
+}
+
+.nav a:hover {
+  color: var(--secundario);
+  outline-color: var(--secundario);
+  outline-style: solid;
+  outline-width: 0.2px;
 }
 
 .me-icon {
@@ -165,68 +137,53 @@ a {
   margin-left: 400px;
 }
 
-.proyectos > * {
+.proyectos div {
+  width: 450px;
+  height: 450px;
+}
+
+.proyectos figure {
   position: relative;
 }
 
-/* .mascara {
-  width: 450px;
-  height: 450px;
-  background: var(--primario);
-  opacity: 0;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
-.proyectos:hover .mascara {
-  opacity: 0.6;
-  text-align: justify;
-  font-size: 90px;
-  font-weight: lighter;
-  color: white;
-  padding: 30px;
+.proyectos figure:hover figcaption::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
-} */
-
-.editorial {
-  width: 450px;
+  width: 450px; 
   height: 450px;
-  /* flex-basis: 450px; */
+  background-color: rgba(var(--primario), 0.3);
 }
 
-.fotografia {
-  width: 450px;
-  height: 450px;
-  /* flex-basis: 450px; */
+.proyectos figure a:hover + figcaption {
+  visibility: visible;
+  transform: rotate(-90deg);
+  font-size: 90px;
+  line-height: 450px;
 }
 
-.diseno-web {
-  width: 450px;
-  height: 450px;
-  /* flex-basis: 450px; */
-}
-
-.diseno-app {
-  width: 450px;
-  height: 450px;
-  /* flex-basis: 450px; */
-}
-
-.diseno-app[UX-UI] {
-  position:absolute;
-  /* flex-basis: 450px; */
-}
-
-.tipografia {
-  width: 450px;
-  height: 450px;
-  /* flex-basis: 450px; */
-}
-
-.proyectos img {
+.proyectos figcaption {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  text-align: center;
+  cursor: none;
+  pointer-events: none;
+  color: #ffffff;
+  -webkit-text-stroke: 1.5px black;
+}
+
+.proyectos-indiv h2 {
+  font-size: 130px;
+  font-weight: lighter;
+  line-height: 140px;
+  color: var(--primario);
 }
 
 /* Utilities */

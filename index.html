@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html />
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,122 +6,118 @@
     <title>Alexia Vilar</title>
     <link
       rel="stylesheet"
+      type="text/css"
       href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- HTML:Markup - Comienza aquí -->
-
     <header class="header grid">
       <nav class="nav">
-        <ul>
-          <li><a href="#">home</a></li>
-          <li><a href="#">work</a></li>
-          <li><a href="#">me</a></li>
-          <li><a href="#">contact</a></li>
+        <ul role="list">
+          <li>
+            <a href="#">home</a>
+          </li>
+          <li>
+            <a href="#">work</a>
+          </li>
+          <li>
+            <a href="#">me</a>
+          </li>
+          <li>
+            <a href="#">contact</a>
+          </li>
         </ul>
       </nav>
-
-      <div class="me-icon">
-        <img
-          src="https://res.cloudinary.com/alexiavilar/image/upload/v1614872170/Portafolio/me-icon_gye0o2.png"
-        />
-      </div>
-
+      <img
+        class="me-icon"
+        src="https://res.cloudinary.com/alexiavilar/image/upload/v1614872170/Portafolio/me-icon_gye0o2.png"
+      />
       <h1 class="titulo absolute">
         Alexia
-        <br />
-        Vilar
+        <br />Vilar
       </h1>
-
       <p class="texto-principal">Insertar texto aqui lalalalala</p>
     </header>
-
-    <div class="proyectos">
-      <div class="editorial" data-categoria="Editorial">
-        <a href="">
-          <img
-            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876876/Portafolio/proyectos/poemario_zljslc.jpg"
-            alt="poemario"
-            width="450"
-            height="450"
-            loading="lazy"
-          />
-        </a>
-        <div class="mascara absolute">
-          <h3>editorial</h3>
-        </div>
+    <section class="proyectos">
+      <div class="editorial">
+        <figure>
+          <a href="#">
+            <img
+              src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876876/Portafolio/proyectos/poemario_zljslc.jpg"
+              alt="poemario"
+              width="450"
+              height="450"
+              loading="lazy"
+            />
+          </a>
+          <figcaption>Editorial</figcaption>
+        </figure>
       </div>
-
-      <div class="fotografia" data-categoria="Fotografia">
-        <a href="">
-          <img
-            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/foto-analoga_utyqmj.jpg"
-            alt="foto"
-            width="450"
-            height="450"
-            loading="lazy"
-          />
-        </a>
-        <div class="mascara absolute">
-          <h3>fotografía</h3>
-        </div>
+      <div class="fotografia">
+        <figure>
+          <a href="#">
+            <img
+              src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/foto-analoga_utyqmj.jpg"
+              alt="foto"
+              width="450"
+              height="450"
+              loading="lazy"
+            />
+          </a>
+          <figcaption>Fotografia</figcaption>
+        </figure>
       </div>
-
-      <div class="diseno-web" data-categoria="Diseño-web">
-        <a href="">
-          <img
-            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
-            alt="web"
-            width="450"
-            height="450"
-            loading="lazy"
-          />
-        </a>
-        <div class="mascara absolute">
-          <h3>diseño web</h3>
-        </div>
+      <div class="diseno-web">
+        <figure>
+          <a href="#">
+            <img
+              src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
+              alt="web"
+              width="450"
+              height="450"
+              loading="lazy"
+            />
+          </a>
+          <figcaption>Diseño web</figcaption>
+        </figure>
       </div>
-
-      <!-- Ejemplo -->
-      <div class="diseno-app" data-categoria="UX-UI">
-        <a href="">
-          <img
-            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-app_rdz41w.jpg"
-            alt="app"
-            width="450"
-            height="450"
-            loading="lazy"
-          />
-        </a>
-        <div class="mascara absolute">
-          <h3>UX-UI</h3>
-        </div>
+      <div class="diseno-app">
+        <figure>
+          <a href="#">
+            <img
+              src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-app_rdz41w.jpg"
+              alt="app"
+              width="450"
+              height="450"
+              loading="lazy"
+            />
+          </a>
+          <figcaption>UX-UI</figcaption>
+        </figure>
       </div>
-
-      <div class="tipografia" data-categoria="diseño tipográfico">
-        <a href="">
-          <img
-            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-tipo_kld3un.jpg"
-            alt="tipografia"
-            width="450"
-            height="450"
-            loading="lazy"
-          />
-        </a>
-        <div class="mascara absolute">
-          <h3>diseño tipográfico</h3>
-        </div>
+      <div class="tipografia">
+        <figure>
+          <a href="#">
+            <img
+              src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-tipo_kld3un.jpg"
+              alt="tipografia"
+              width="450"
+              height="450"
+              loading="lazy"
+            />
+          </a>
+          <figcaption>Diseño tipográfico</figcaption>
+        </figure>
       </div>
-    </div>
-
-    <div class="proyectos-indiv">
+    </section>
+    <!-- <div class="proyectos-indiv">
       <h2>mundos simultáneos</h2>
       <h2>ginsberg typography</h2>
       <h2>aproximaciones</h2>
       <h2>último sol</h2>
       <h2>manual tipográfico</h2>
-    </div>
+    </div> -->
+    <script src="./index.js"></script>
   </body>
 </html>
