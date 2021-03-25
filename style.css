@@ -103,12 +103,14 @@ a {
   position: sticky;
 }
 
+/*
 .menu "scroll", () => {
   const scrolled = window.pageYOffset;
   const rotateCoefficient = 0.1;
   const particle = document.querySelector(".particle");
   particle.style.transform = `rotate(${scrolled * rotateCoefficient}deg)`;
 };
+*/
 
 .menu a:hover {
   color: var(--secundario);
