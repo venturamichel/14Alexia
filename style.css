@@ -12,11 +12,13 @@
 /* Variables */
 :root {
   --primario: black;
-  --primario-claro: #a2f598;
-  --primario-fuerte: #279e19;
-  --secundario: rgb(255, 4, 251);
-  --secundario-claro: #b2b3b2;
-  --secundario-fuerte: #000000;
+  --primario-claro: white;
+  --primario-fuerte: rgb(255, 4, 251);
+  --secundario: #002f3f ;
+  --secundario-2: #f26b6c;
+  --secundario-3: #e8e5f2;
+  --secundario-4: #ebe721;
+  --secundario-5: #cbeaf1;
   --bg: white;
   --font-family-titulos: "JetBrains Mono";
   --font-family-textos: "Merriweather";
@@ -200,7 +202,7 @@ a {
 }
 
 .hero {
-  
+
 }
 
 /* .mascara {
