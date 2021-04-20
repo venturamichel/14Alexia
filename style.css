@@ -173,7 +173,7 @@ a {
   display: grid;
   grid-auto-flow: column;
   gap: 60px;
-  margin-left: 400px;
+  overflow-x: scroll;
 }
 
 .proyectos > * {
@@ -326,10 +326,22 @@ a {
 
 .cat-desc-container {
   padding: 0 90px;
+  margin-top: 300px;
 }
 
-.cat-image {
-  /* margin-left: 50px; */
+.scroll {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1000px;
+  overflow-x: scroll;
+}
+
+.scroll > * {
+  position: relative;
+}
+
+.cat-img {
+  flex-shrink: 0;
 }
 .cat-nombre {
   font-size: 28px;
@@ -338,9 +350,11 @@ a {
 .cat-pagination {
   height: 5px;
   width: 80vw;
-  margin: 40px auto 10px;
+  /*margin: 40px auto 10px;*/
   background-color: white;
   border-radius: 20px;
+  position: absolute;
+  bottom: 20px;
 }
 
 .cat-descripcion {
