@@ -1,11 +1,11 @@
 /* Tipografía */
-@font-face {
+/*@font-face {
   font-family: "JetBrains Mono", monospace;
   font-style: Extra-Bold;
   font-weight: 40;
-}
+}*/
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,700;1,300&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
 
@@ -37,7 +37,7 @@ body {
   font-weight: 400;
   margin: 30px;
   background-color: var(--bg);
-  cursor: url("https://res.cloudinary.com/alexiavilar/image/upload/v1615481320/Portafolio/noun_Smiley_830922_lumeeo.svg"),
+  cursor: url(https://res.cloudinary.com/alexiavilar/image/upload/v1619543032/Portafolio/smiley_d9zxvi.svg),
     auto;
 }
 
@@ -326,7 +326,7 @@ a {
 
 .cat-desc-container {
   padding: 0 90px;
-  margin-top: 300px;
+  /* margin-top: 300px; */
 }
 
 .scroll {
@@ -334,6 +334,9 @@ a {
   grid-auto-flow: column;
   gap: 1000px;
   overflow-x: scroll;
+  /*overflow: hidden;
+  max-width: 90vw;
+  margin: 0 auto;*/
 }
 
 .scroll > * {
@@ -347,18 +350,8 @@ a {
   font-size: 28px;
 }
 
-.cat-pagination {
-  height: 5px;
-  width: 80vw;
-  /*margin: 40px auto 10px;*/
-  background-color: white;
-  border-radius: 20px;
-  position: absolute;
-  bottom: 20px;
-}
-
 .cat-descripcion {
-  font-size: small;
+  font-size: 11px;
 }
 
 /* Utilities */
@@ -414,4 +407,128 @@ a {
 
 .outline {
   outline: 2px solid black;
+}
+
+.carrusel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrusel .open:checked + figure {
+  position: static;
+  opacity: 100;
+}
+
+.carrusel figure {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.carrusel figure img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.carrusel-nav {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  font-size: 40px;
+  height: 40px;
+  line-height: 35px;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  transform: translate(0, -50%);
+  transition: opacity 0.4s linear;
+  text-align: center;
+  width: 40px;
+  z-index: 10;
+}
+
+.carrusel-nav.anterior {
+  left: 0.5ch;
+}
+
+.carrusel-nav.siguiente {
+  right: 0.5ch;
+}
+
+.carrusel-nav:hover {
+  opacity: 0.8;
+}
+
+#uno:checked ~ .uno,
+#dos:checked ~ .dos,
+#tres:checked
+  ~ .tres
+  #cuatro:checked
+  ~ .cuatro
+  #cinco:checked
+  ~ .cinco
+  #seis:checked
+  ~ .seis
+  #siete:checked
+  ~ .siete
+  #ocho:checked
+  ~ .ocho
+  #nueve:checked
+  ~ .nueve {
+  display: none;
+}
+
+.carrusel-dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.carrusel-dots li {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.dot {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 2rem;
+  transition: opacity 0.4s linear;
+}
+
+.dot:hover {
+  opacity: 0.8;
+}
+
+#uno:checked ~ .uno ~ .carrusel-dots li:nth-child(1) .dot,
+#dos:checked ~ .dos ~ .carrusel-dots li:nth-child(2) .dot,
+#tres:checked ~ .tres ~ .carrusel-dots li:nth-child(3) .dot,
+#cuatro:checked ~ .cuatro ~ .carrusel-dots li:nth-child(4) .dot,
+#cinco:checked ~ .cinco ~ .carrusel-dots li:nth-child(5) .dot,
+#seis:checked ~ .seis ~ .carrusel-dots li:nth-child(6) .dot,
+#siete:checked ~ .siete ~ .carrusel-dots li:nth-child(7) .dot,
+#ocho:checked ~ .ocho ~ .carrusel-dots li:nth-child(8) .dot,
+#nueve:checked ~ .nueve ~ .carrusel-dots li:nth-child(9) .dot {
+  color: var(--primario-fuerte);
+}
+
+.contact-me {
+  margin: 500px;
+  font-family: var(--font-family-textos);
+  font-size: 50px;
+  font-weight: bold;
+  color: var(--primario);
+  align-self: center;
+  background-color: var(--secundario-3);
 }
