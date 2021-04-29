@@ -11,4 +11,5 @@
 -menu conectado con secciones\
 -como cambiar el cursor \
 -animaciones\
+-MENU FIJO (cuando se hace scroll hacia abajo se debe de quedar en la esquina izquierda abajo)
 }
