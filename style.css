@@ -115,12 +115,15 @@ a {
 }
 
 .titulo {
+  /* position: absolute; */
+  /* background-color: magenta; */
   top: 0;
+
   font-family: var(--font-family-titulos);
   font-weight: bolder;
   grid-area: titulo;
   font-size: 40px;
-  line-height: 150px;
+  line-height: 0;
   color: var(--primario);
   text-align: center;
 }
@@ -135,11 +138,11 @@ a {
   align-self: center;
 }
 
+/* Header */
 .header {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   grid-template-rows: 0.2fr 1.8fr;
-  gap: 0px 0px;
   grid-template-areas:
     "titulo titulo"
     "yo texto-principal";
@@ -148,6 +151,13 @@ a {
   grid-area: menu;
 }
 
+@media screen and (max-width: 415px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Nav */
 .nav {
   display: inline-block;
   grid-area: nav;
@@ -166,7 +176,14 @@ a {
 
 .yo {
   width: 315px;
+  margin: 0 0 0 auto;
   height: 450px;
+}
+
+.example-origin {
+  flex-basis: 100%;
+  flex-grow: 1;
+  padding: 10px;
 }
 
 .proyectos {
@@ -531,4 +548,24 @@ a {
   color: var(--primario);
   align-self: center;
   background-color: var(--secundario-3);
+}
+
+.contacto {
+  font-family: var(--font-family-textos);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--primario);
+  align-self: center;
+}
+
+.proyecto {
+  display: flex;
+}
+
+@media screen and (max-width: 415px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
 }
