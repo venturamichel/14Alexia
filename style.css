@@ -23,6 +23,7 @@
   --font-family-titulos: "JetBrains Mono";
   --font-family-textos: "Merriweather";
   --font-size: 17px;
+  --cursor-img: "https://res.cloudinary.com/alexiavilar/image/upload/v1619543032/Portafolio/smiley_d9zxvi.svg";
   /* --h1: 180px;
   --h2: 130px;
   --h3: 90px;
@@ -35,10 +36,12 @@
 body {
   font-family: var(--font-family-textos);
   font-weight: 400;
-  margin: 30px;
+
   background-color: var(--bg);
-  cursor: url(https://res.cloudinary.com/alexiavilar/image/upload/v1619543032/Portafolio/smiley_d9zxvi.svg),
-    auto;
+  /* cursor: url(https://res.cloudinary.com/alexiavilar/image/upload/v1619543032/Portafolio/smiley_d9zxvi.svg), */
+  /* auto; */
+  cursor: url("./iconos/smiley.svg"), auto;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -88,6 +91,10 @@ a {
   text-decoration: none;
 }
 
+svg text a:hover {
+  fill: magenta;
+}
+
 /* Componentes */
 
 .proyectos-indiv h2 {
@@ -97,10 +104,11 @@ a {
   color: var(--primario);
 }
 
-.menu {
+.menu svg {
   max-width: 200px;
   max-height: 200px;
-  position: sticky;
+  position: fixed;
+  z-index: 1000;
 }
 /*
 .menu "scroll", () => {
@@ -118,12 +126,11 @@ a {
   /* position: absolute; */
   /* background-color: magenta; */
   top: 0;
-
   font-family: var(--font-family-titulos);
   font-weight: bolder;
   grid-area: titulo;
   font-size: 40px;
-  line-height: 0;
+  /* line-height: 0; */
   color: var(--primario);
   text-align: center;
 }
@@ -146,6 +153,7 @@ a {
   grid-template-areas:
     "titulo titulo"
     "yo texto-principal";
+  margin: 30px;
 }
 .header {
   grid-area: menu;
@@ -191,6 +199,8 @@ a {
   grid-auto-flow: column;
   gap: 60px;
   overflow-x: scroll;
+  padding-top: 220px;
+  margin: 30px;
 }
 
 .proyectos > * {
@@ -453,14 +463,14 @@ a {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   color: #fff;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: none;
   font-size: 40px;
   height: 40px;
   line-height: 35px;
   position: absolute;
   top: 50%;
-  cursor: pointer;
+  /* cursor: pointer; */
   transform: translate(0, -50%);
   transition: opacity 0.4s linear;
   text-align: center;
@@ -518,7 +528,7 @@ a {
 
 .dot {
   color: #fff;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: block;
   font-size: 2rem;
   transition: opacity 0.4s linear;
@@ -541,12 +551,17 @@ a {
 }
 
 .contact-me {
-  margin: 500px;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
   font-family: var(--font-family-textos);
   font-size: 50px;
   font-weight: bold;
   color: var(--primario);
-  align-self: center;
+  /* align-self: center; */
   background-color: var(--secundario-3);
 }
 
