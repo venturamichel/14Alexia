@@ -42,6 +42,7 @@ body {
   /* auto; */
   cursor: url("./iconos/smiley.svg"), auto;
   scroll-behavior: smooth;
+  /* overflow: hidden; condicional si el .cat is open */
 }
 
 h1,
@@ -63,7 +64,8 @@ h2 {
 }
 
 h3 {
-  font-size: var(--h3);
+  font-size: 20px;
+  align-items: center;
 }
 
 h4 {
@@ -194,17 +196,38 @@ svg text a:hover {
   padding: 10px;
 }
 
-.proyectos {
+/* Antes
+ .proyectos {
   display: grid;
   grid-auto-flow: column;
   gap: 60px;
   overflow-x: scroll;
   padding-top: 220px;
   margin: 30px;
+} */
+
+.proyectos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-top: 220px;
+  margin: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .proyectos {
+    /* display: grid; */
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    overflow-x: scroll;
+    padding-top: 220px;
+    margin: 30px;
+  }
 }
 
 .proyectos > * {
-  position: relative;
+  position: unset;
 }
 
 .hero {
@@ -290,26 +313,41 @@ svg text a:hover {
 }
 
 .cat {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--secundario);
   color: white;
   padding: 50px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
 
 .cat2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--secundario-2);
   color: white;
   padding: 50px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
 
 .cat3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--secundario-3);
   color: black;
   padding: 50px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
 
@@ -356,19 +394,19 @@ svg text a:hover {
   /* margin-top: 300px; */
 }
 
-.scroll {
+/*.scroll {
   display: grid;
   grid-auto-flow: column;
   gap: 1000px;
   overflow-x: scroll;
   /*overflow: hidden;
   max-width: 90vw;
-  margin: 0 auto;*/
+  margin: 0 auto;
 }
 
 .scroll > * {
   position: relative;
-}
+}*/
 
 .cat-img {
   flex-shrink: 0;
@@ -582,5 +620,48 @@ svg text a:hover {
   .header {
     display: flex;
     flex-direction: column;
+  }
+}
+
+* {
+  overflow-x: hidden !important;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu svg {
+    max-width: 170px;
+    max-height: 170px;
+    transform: translatey(0);
+  }
+  .proyectos {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .proyectos div {
+    width: 100%;
+    padding: 0;
+    margin: 0 10px;
+  }
+
+  .proyectos div h3 {
+    line-height: 2;
+  }
+  .proyectos .mascara {
+    all: unset;
+  }
+  .absolute {
+    all: unset;
   }
 }
