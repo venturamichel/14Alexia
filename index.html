@@ -8,7 +8,8 @@
       rel="stylesheet"
       href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <!-- *<link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="mich.css" />
   </head>
   <body id="home">
     <!-- HTML:Markup - Comienza aquí -->
@@ -52,7 +53,7 @@
             .
             <a href="/#work">WORK</a>
             .
-            <a href="#">ABOUT ME</a>
+            <a href="/#about">ABOUT ME</a>
             .
             <a href="#">CONTACT</a>
             .
@@ -62,8 +63,8 @@
     </div>
 
     <div id="work" class="proyectos">
-      <div class="editorial" data-categoria="Editorial">
-        <a href="">
+      <div x-data="showInfo()" class="editorial" data-categoria="Editorial">
+        <a x-spread="trigger">
           <img
             src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876876/Portafolio/proyectos/poemario_zljslc.jpg"
             alt="poemario"
@@ -75,10 +76,184 @@
         <div class="mascara absolute">
           <h3>editorial</h3>
         </div>
+        <!-- Inicia la info -->
+        <div x-spread="info" class="info-editorial">
+          <div class="cat">
+            <h2 class="cat-seccion text-center">EDITORIAL</h2>
+            <p class="cat-close">X</p>
+
+            <div class="carrusel">
+              <input
+                class="open"
+                type="radio"
+                id="uno"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+                checked="checked"
+              />
+
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618939019/Portafolio/proyectos/editorial/aproximaciones_mxashj.jpg"
+                />
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Aproximaciones</h2>
+                  <p class="cat-descripcion">
+                    Un libro de poesía increíble. Mi primer diseño de libro
+                    real. Diseño editorial, edición, fotografía y diseño de
+                    portada.
+                  </p>
+                </div>
+              </figure>
+              <input
+                class="open"
+                type="radio"
+                id="dos"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618939020/Portafolio/proyectos/editorial/tiposmoviles_ok7p5b.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Sin nombre</h2>
+                  <p class="cat-descripcion">
+                    Las portadas de esta colección de libros fue diseñada con
+                    métodos análogos utilizando tipos móviles.
+                  </p>
+                </div>
+              </figure>
+              <input
+                class="open"
+                type="radio"
+                id="tres"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618939019/Portafolio/proyectos/editorial/mundomusical_ufdlmv.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Mundo Musical</h2>
+                  <p class="cat-descripcion">
+                    Diseño editorial para revistas que hablan sobre música.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="cuatro"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618939019/Portafolio/proyectos/editorial/coleccioncemp_ctlrur.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Colección Cempasúchil</h2>
+                  <p class="cat-descripcion">
+                    Una colección de libros que fue diseñada con mucho amor.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="cinco"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618939019/Portafolio/proyectos/editorial/manual_w9jhhu.jpg"
+                />
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Manual tipográfico</h2>
+                  <p class="cat-descripcion">
+                    Manual para aprender todo sobre la tipografía y el diseño de
+                    este.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="seis"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618939019/Portafolio/proyectos/editorial/malba_w8xstw.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Malba</h2>
+                  <p class="cat-descripcion">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nisi corrupti cum dolor doloremque odit sit doloribus illum,
+                    nostrum cumque aliquid!
+                  </p>
+                </div>
+              </figure>
+
+              <label for="seis" class="carrusel-nav anterior uno">‹</label>
+              <label for="cinco" class="carrusel-nav siguiente uno">‹</label>
+              <label for="cuatro" class="carrusel-nav anterior dos">‹</label>
+              <label for="tres" class="carrusel-nav siguiente dos">‹</label>
+              <label for="dos" class="carrusel-nav anterior tres">›</label>
+              <label for="uno" class="carrusel-nav siguiente tres">‹</label>
+              <label for="seis" class="carrusel-nav anterior cuatro">‹</label>
+              <label for="cinco" class="carrusel-nav siguiente cuatro">‹</label>
+              <label for="cuatro" class="carrusel-nav anterior cinco">‹</label>
+              <label for="tres" class="carrusel-nav siguiente cinco">›</label>
+              <label for="dos" class="carrusel-nav anterior seis">‹</label>
+              <label for="uno" class="carrusel-nav siguiente seis">›</label>
+
+              <ol class="carrusel-dots">
+                <li>
+                  <label for="uno" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="dos" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="tres" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="cuatro" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="cinco" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="seis" class="dot">•</label>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <!-- Termina la info -->
       </div>
 
-      <div class="fotografia" data-categoria="Fotografia">
-        <a href="">
+      <div x-data="showInfo()" class="fotografia" data-categoria="Fotografia">
+        <a x-spread="trigger">
           <img
             src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/foto-analoga_utyqmj.jpg"
             alt="foto"
@@ -90,21 +265,375 @@
         <div class="mascara absolute">
           <h3>fotografía</h3>
         </div>
+        <!-- Inicia la info -->
+        <div x-spread="info" class="info-fotografia">
+          <div class="cat3">
+            <h2 class="cat-seccion text-center">FOTOGRAFÍA</h2>
+            <p class="cat-close">X</p>
+
+            <div class="carrusel">
+              <input
+                class="open"
+                type="radio"
+                id="uno"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+                checked="checked"
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/8_f1ecwu.jpg"
+                />
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Mundos simultáneos</h2>
+                  <p class="cat-descripcion">
+                    Mi proyecto final de fotografía análoga. Aquí descubrí mi
+                    amor por esta práctica. El objetivo principal de este
+                    proyecto era representar mediante fotografías la influencia
+                    y el alcance del agua en el ser humano funcional, física y
+                    emocionalmente.
+                  </p>
+                </div>
+                <!-- <figcaption>
+      Hola soy el figcaption
+    </figcaption> -->
+              </figure>
+              <input
+                class="open"
+                type="radio"
+                id="dos"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/13_rurshy.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Meses de lluvia</h2>
+                  <p class="cat-descripcion">
+                    Un proyecto increíble de fotografías análogas para un libro
+                    de Haikus. Cada imagen ilustra un poema japones diferente.
+                  </p>
+                </div>
+              </figure>
+              <input
+                class="open"
+                type="radio"
+                id="tres"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/1_ypo7wr.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Skate</h2>
+                  <p class="cat-descripcion">
+                    Experimentación con las diferentes velocidades de la cámara
+                    análoga.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="cuatro"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/10_ebjlvu.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Perspective</h2>
+                  <p class="cat-descripcion">
+                    Experimentación con la profundidad de campo con cámara
+                    análoga. Retratos de Cuernavaca.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="cinco"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/14_biwsst.jpg"
+                />
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Back home</h2>
+                  <p class="cat-descripcion">
+                    Fotografías análogas del lugar donde crecí.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="seis"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/2_fok8gn.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Identities</h2>
+                  <p class="cat-descripcion">
+                    Dualidad de identidades, reconocimiento del constante
+                    cambio.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="siete"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/5_vvgdad.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Back in New York</h2>
+                  <p class="cat-descripcion">De algún viaje a Nueva York.</p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="ocho"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/4_iaenhc.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">A day in life</h2>
+                  <p class="cat-descripcion">
+                    Proyecto fotográfico inspirado en la vida diaria.
+                  </p>
+                </div>
+              </figure>
+
+              <input
+                class="open"
+                type="radio"
+                id="nueve"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+              />
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/3_wlitqq.jpg"
+                />
+
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Psyche</h2>
+                  <p class="cat-descripcion">
+                    Fotografía experimental que pretende visibilizar los
+                    transtornos mentales y psicológicos.
+                  </p>
+                </div>
+              </figure>
+
+              <label for="nueve" class="carrusel-nav anterior uno">‹</label>
+              <label for="ocho" class="carrusel-nav siguiente uno">‹</label>
+              <label for="siete" class="carrusel-nav anterior dos">‹</label>
+              <label for="seis" class="carrusel-nav siguiente dos">‹</label>
+              <label for="cinco" class="carrusel-nav anterior tres">‹</label>
+              <label for="cuatro" class="carrusel-nav siguiente tres">‹</label>
+              <label for="tres" class="carrusel-nav anterior cuatro">‹</label>
+              <label for="dos" class="carrusel-nav siguiente cuatro">›</label>
+              <label for="uno" class="carrusel-nav anterior cinco">‹</label>
+              <label for="nueve" class="carrusel-nav siguiente cinco">‹</label>
+              <label for="ocho" class="carrusel-nav anterior seis">‹</label>
+              <label for="siete" class="carrusel-nav siguiente seis">‹</label>
+              <label for="seis" class="carrusel-nav anterior siete">‹</label>
+              <label for="cinco" class="carrusel-nav siguiente siete">‹</label>
+              <label for="cuatro" class="carrusel-nav anterior ocho">‹</label>
+              <label for="tres" class="carrusel-nav siguiente ocho">›</label>
+              <label for="dos" class="carrusel-nav anterior nueve">‹</label>
+              <label for="uno" class="carrusel-nav siguiente nueve">›</label>
+
+              <ol class="carrusel-dots">
+                <li>
+                  <label for="uno" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="dos" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="tres" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="cuatro" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="cinco" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="seis" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="siete" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="ocho" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="nueve" class="dot">•</label>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div x-data="showInfo()" class="diseno-web" data-categoria="Diseño-web">
+      <a x-spread="trigger">
+        <img
+          src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
+          alt="web"
+          width="450"
+          height="450"
+          loading="lazy"
+        />
+      </a>
+      <div class="mascara absolute">
+        <h3>diseño web</h3>
       </div>
 
-      <div class="diseno-web" data-categoria="Diseño-web">
-        <a href="">
-          <img
-            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
-            alt="web"
-            width="450"
-            height="450"
-            loading="lazy"
-          />
-        </a>
-        <div class="mascara absolute">
-          <h3>diseño web</h3>
+      <div x-spread="info" class="info-fotografia">
+        <div class="cat2">
+          <h2 class="cat-seccion text-center">DISEÑO WEB</h2>
+          <p class="cat-close">X</p>
+
+          <div class="carrusel">
+            <input
+              class="open"
+              type="radio"
+              id="uno"
+              name="carrusel"
+              aria-hidden="true"
+              hidden=""
+              checked="checked"
+            />
+            <figure>
+              <img
+                src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
+              />
+              <div class="cat-desc-container">
+                <h2 class="cat-nombre">Les Gai Cinema</h2>
+                <p class="cat-descripcion">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                  corrupti cum dolor doloremque odit sit doloribus illum,
+                  nostrum cumque aliquid!
+                </p>
+              </div>
+              <!-- <figcaption>
+      Hola soy el figcaption
+    </figcaption> -->
+            </figure>
+            <input
+              class="open"
+              type="radio"
+              id="dos"
+              name="carrusel"
+              aria-hidden="true"
+              hidden=""
+            />
+            <figure>
+              <img
+                src="https://res.cloudinary.com/alexiavilar/image/upload/v1619546959/Portafolio/proyectos/web/web_nvdio2.jpg"
+              />
+
+              <div class="cat-desc-container">
+                <h2 class="cat-nombre">Sin título</h2>
+                <p class="cat-descripcion">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                  corrupti cum dolor doloremque odit sit doloribus illum,
+                  nostrum cumque aliquid!
+                </p>
+              </div>
+            </figure>
+
+            <input
+              class="open"
+              type="radio"
+              id="tres"
+              name="carrusel"
+              aria-hidden="true"
+              hidden=""
+            />
+            <figure>
+              <img
+                src="https://res.cloudinary.com/alexiavilar/image/upload/v1619546959/Portafolio/proyectos/web/wearethem_pc75pp.jpg"
+              />
+
+              <div class="cat-desc-container">
+                <h2 class="cat-nombre">We are them</h2>
+                <p class="cat-descripcion">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                  corrupti cum dolor doloremque odit sit doloribus illum,
+                  nostrum cumque aliquid!
+                </p>
+              </div>
+            </figure>
+
+            <label for="tres" class="carrusel-nav anterior uno">›</label>
+            <label for="dos" class="carrusel-nav siguiente uno">‹</label>
+            <label for="uno" class="carrusel-nav anterior dos">›</label>
+            <label for="tres" class="carrusel-nav siguiente dos">›</label>
+            <label for="dos" class="carrusel-nav anterior tres">‹</label>
+            <label for="uno" class="carrusel-nav siguiente tres">›</label>
+
+            <ol class="carrusel-dots">
+              <li>
+                <label for="uno" class="dot">•</label>
+              </li>
+              <li>
+                <label for="dos" class="dot">•</label>
+              </li>
+              <li>
+                <label for="tres" class="dot">•</label>
+              </li>
+            </ol>
+          </div>
         </div>
+      </div>
       </div>
 
       <!-- Ejemplo -->
@@ -143,5 +672,7 @@
       <p>Let's talk!</p>
       <p class="contacto">alexiavll@yahoo.com.mx | 5530098787</p>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
