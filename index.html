@@ -8,24 +8,242 @@
       rel="stylesheet"
       href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
     />
-    <!-- *<link rel="stylesheet" href="style.css" /> -->
-    <link rel="stylesheet" href="mich.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @keyframes tonext {
+        75% {
+          left: 0;
+        }
+        95% {
+          left: 100%;
+        }
+        98% {
+          left: 100%;
+        }
+        99% {
+          left: 0;
+        }
+      }
+
+      @keyframes tostart {
+        75% {
+          left: 0;
+        }
+        95% {
+          left: -300%;
+        }
+        98% {
+          left: -300%;
+        }
+        99% {
+          left: 0;
+        }
+      }
+
+      @keyframes snap {
+        96% {
+          scroll-snap-align: center;
+        }
+        97% {
+          scroll-snap-align: none;
+        }
+        99% {
+          scroll-snap-align: none;
+        }
+        100% {
+          scroll-snap-align: center;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+        scrollbar-color: transparent transparent; /* thumb and track color */
+        scrollbar-width: 0px;
+      }
+
+      *::-webkit-scrollbar {
+        width: 0;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: transparent;
+        border: none;
+      }
+
+      * {
+        -ms-overflow-style: none;
+      }
+
+      ol,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .carousel {
+        position: relative;
+        padding-top: 75%;
+        filter: drop-shadow(0 0 10px #0003);
+        perspective: 100px;
+      }
+
+      .carousel__viewport {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        overflow-x: scroll;
+        counter-reset: item;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+      }
+
+      .carousel__slide {
+        position: relative;
+        flex: 0 0 100%;
+        width: 100%;
+        background-color: #f99;
+        counter-increment: item;
+      }
+
+      .carousel__slide:nth-child(even) {
+        background-color: #99f;
+      }
+
+      .carousel__slide:before {
+        content: counter(item);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -40%, 70px);
+        color: #fff;
+        font-size: 2em;
+      }
+
+      .carousel__snapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        scroll-snap-align: center;
+      }
+
+      @media (hover: hover) {
+        .carousel__snapper {
+          animation-name: tonext, snap;
+          animation-timing-function: ease;
+          animation-duration: 4s;
+          animation-iteration-count: infinite;
+        }
+
+        .carousel__slide:last-child .carousel__snapper {
+          animation-name: tostart, snap;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .carousel__snapper {
+          animation-name: none;
+        }
+      }
+
+      .carousel:hover .carousel__snapper,
+      .carousel:focus-within .carousel__snapper {
+        animation-name: none;
+      }
+
+      .carousel__navigation {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+      }
+
+      .carousel__navigation-list,
+      .carousel__navigation-item {
+        display: inline-block;
+      }
+
+      .carousel__navigation-button {
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #333;
+        background-clip: content-box;
+        border: 0.25rem solid transparent;
+        border-radius: 50%;
+        font-size: 0;
+        transition: transform 0.1s;
+      }
+
+      .carousel::before,
+      .carousel::after,
+      .carousel__prev,
+      .carousel__next {
+        position: absolute;
+        top: 0;
+        margin-top: 37.5%;
+        width: 4rem;
+        height: 4rem;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        font-size: 0;
+        outline: 0;
+      }
+
+      .carousel::before,
+      .carousel__prev {
+        left: -1rem;
+      }
+
+      .carousel::after,
+      .carousel__next {
+        right: -1rem;
+      }
+
+      .carousel::before,
+      .carousel::after {
+        content: "";
+        z-index: 1;
+        background-color: #333;
+        background-size: 1.5rem 1.5rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        color: #fff;
+        font-size: 2.5rem;
+        line-height: 4rem;
+        text-align: center;
+        pointer-events: none;
+      }
+
+      .carousel::before {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+      }
+
+      .carousel::after {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+      }
+    </style>
   </head>
   <body id="home">
-    <!-- HTML:Markup - Comienza aquí -->
     <header class="header">
-      <div class="titulo">
-        <h1>ALEXIA VILAR</h1>
-      </div>
-
-      <div class="yo">
+      <h1 class="titulo">ALEXIA VILAR</h1>
+      <div>
         <img
+          class="yo"
           src="https://res.cloudinary.com/alexiavilar/image/upload/v1615478264/Portafolio/yo_xieqbb.png"
         />
-      </div>
 
-      <div class="texto-principal">
-        <p>
+        <p class="texto-principal">
           Hey there! I’m a visual communicator <br />
           and graphic designer from Mexico City.<br />
           Here you can take a look at my work <br />
@@ -34,21 +252,20 @@
       </div>
     </header>
 
-    <div class="menu">
+    <div class="menu" role="navigation">
       <svg viewBox="0 0 400 400">
         <defs>
           <path
-            id="MyPath"
+            id="menu"
             d="M 200, 200
              m -100, 0
              a 100,100 0 1,1 200,0
              a 100,100 0 1,1 -200,0"
-            alt="scroll"
           />
         </defs>
 
         <text font-family="JetBrains Mono" font-size="30">
-          <textPath xlink:href="#MyPath">
+          <textPath xlink:href="#menu">
             <a href="/#home">HOME</a>
             .
             <a href="/#work">WORK</a>
@@ -62,7 +279,7 @@
       </svg>
     </div>
 
-    <div id="work" class="proyectos">
+    <section id="work" class="proyectos">
       <div x-data="showInfo()" class="editorial" data-categoria="Editorial">
         <a x-spread="trigger">
           <img
@@ -72,17 +289,16 @@
             height="450"
             loading="lazy"
           />
+          <div class="mascara">
+            <h3>editorial</h3>
+          </div>
         </a>
-        <div class="mascara absolute">
-          <h3>editorial</h3>
-        </div>
-        <!-- Inicia la info -->
-        <div x-spread="info" class="info-editorial">
+        <div x-spread="info" class="info">
           <div class="cat">
-            <h2 class="cat-seccion text-center">EDITORIAL</h2>
+            <h2 class="cat-seccion">EDITORIAL</h2>
             <p class="cat-close">X</p>
 
-            <div class="carrusel">
+            <!-- <div class="carrusel">
               <input
                 class="open"
                 type="radio"
@@ -247,6 +463,81 @@
                 </li>
               </ol>
             </div>
+             -->
+
+            <section class="carousel" aria-label="Gallery">
+              <ol class="carousel__viewport">
+                <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                  <div class="carousel__snapper">
+                    <a href="#carousel__slide4" class="carousel__prev"
+                      >Go to last slide</a
+                    >
+                    <a href="#carousel__slide2" class="carousel__next"
+                      >Go to next slide</a
+                    >
+                  </div>
+                </li>
+                <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+                  <div class="carousel__snapper"></div>
+                  <a href="#carousel__slide1" class="carousel__prev"
+                    >Go to previous slide</a
+                  >
+                  <a href="#carousel__slide3" class="carousel__next"
+                    >Go to next slide</a
+                  >
+                </li>
+                <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+                  <div class="carousel__snapper"></div>
+                  <a href="#carousel__slide2" class="carousel__prev"
+                    >Go to previous slide</a
+                  >
+                  <a href="#carousel__slide4" class="carousel__next"
+                    >Go to next slide</a
+                  >
+                </li>
+                <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+                  <div class="carousel__snapper"></div>
+                  <a href="#carousel__slide3" class="carousel__prev"
+                    >Go to previous slide</a
+                  >
+                  <a href="#carousel__slide1" class="carousel__next"
+                    >Go to first slide</a
+                  >
+                </li>
+              </ol>
+              <aside class="carousel__navigation">
+                <ol class="carousel__navigation-list">
+                  <li class="carousel__navigation-item">
+                    <a
+                      href="#carousel__slide1"
+                      class="carousel__navigation-button"
+                      >Go to slide 1</a
+                    >
+                  </li>
+                  <li class="carousel__navigation-item">
+                    <a
+                      href="#carousel__slide2"
+                      class="carousel__navigation-button"
+                      >Go to slide 2</a
+                    >
+                  </li>
+                  <li class="carousel__navigation-item">
+                    <a
+                      href="#carousel__slide3"
+                      class="carousel__navigation-button"
+                      >Go to slide 3</a
+                    >
+                  </li>
+                  <li class="carousel__navigation-item">
+                    <a
+                      href="#carousel__slide4"
+                      class="carousel__navigation-button"
+                      >Go to slide 4</a
+                    >
+                  </li>
+                </ol>
+              </aside>
+            </section>
           </div>
         </div>
         <!-- Termina la info -->
@@ -261,14 +552,13 @@
             height="450"
             loading="lazy"
           />
+          <div class="mascara">
+            <h3>fotografía</h3>
+          </div>
         </a>
-        <div class="mascara absolute">
-          <h3>fotografía</h3>
-        </div>
-        <!-- Inicia la info -->
-        <div x-spread="info" class="info-fotografia">
-          <div class="cat3">
-            <h2 class="cat-seccion text-center">FOTOGRAFÍA</h2>
+        <div x-spread="info" class="info">
+          <div class="cat cat3">
+            <h2 class="cat-seccion">FOTOGRAFÍA</h2>
             <p class="cat-close">X</p>
 
             <div class="carrusel">
@@ -281,7 +571,7 @@
                 hidden=""
                 checked="checked"
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/8_f1ecwu.jpg"
                 />
@@ -295,9 +585,6 @@
                     emocionalmente.
                   </p>
                 </div>
-                <!-- <figcaption>
-      Hola soy el figcaption
-    </figcaption> -->
               </figure>
               <input
                 class="open"
@@ -307,7 +594,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/13_rurshy.jpg"
                 />
@@ -328,7 +615,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/1_ypo7wr.jpg"
                 />
@@ -350,7 +637,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/10_ebjlvu.jpg"
                 />
@@ -372,7 +659,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618944508/Portafolio/proyectos/foto/14_biwsst.jpg"
                 />
@@ -392,7 +679,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/2_fok8gn.jpg"
                 />
@@ -414,7 +701,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/5_vvgdad.jpg"
                 />
@@ -433,7 +720,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/4_iaenhc.jpg"
                 />
@@ -454,7 +741,7 @@
                 aria-hidden="true"
                 hidden=""
               />
-              <figure>
+              <figure class="proyecto">
                 <img
                   src="https://res.cloudinary.com/alexiavilar/image/upload/v1618945675/Portafolio/proyectos/foto/foto%20digital/3_wlitqq.jpg"
                 />
@@ -520,125 +807,123 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div x-data="showInfo()" class="diseno-web" data-categoria="Diseño-web">
-      <a x-spread="trigger">
-        <img
-          src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
-          alt="web"
-          width="450"
-          height="450"
-          loading="lazy"
-        />
-      </a>
-      <div class="mascara absolute">
-        <h3>diseño web</h3>
-      </div>
+      <div x-data="showInfo()" class="diseno-web" data-categoria="Diseño-web">
+        <a x-spread="trigger">
+          <img
+            src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
+            alt="web"
+            width="450"
+            height="450"
+            loading="lazy"
+          />
+          <div class="mascara">
+            <h3>diseño web</h3>
+          </div>
+        </a>
 
-      <div x-spread="info" class="info-fotografia">
-        <div class="cat2">
-          <h2 class="cat-seccion text-center">DISEÑO WEB</h2>
-          <p class="cat-close">X</p>
+        <div x-spread="info" class="info">
+          <div class="cat2">
+            <h2 class="cat-seccion">DISEÑO WEB</h2>
+            <p class="cat-close">X</p>
 
-          <div class="carrusel">
-            <input
-              class="open"
-              type="radio"
-              id="uno"
-              name="carrusel"
-              aria-hidden="true"
-              hidden=""
-              checked="checked"
-            />
-            <figure>
-              <img
-                src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
+            <div class="carrusel">
+              <input
+                class="open"
+                type="radio"
+                id="uno"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
+                checked="checked"
               />
-              <div class="cat-desc-container">
-                <h2 class="cat-nombre">Les Gai Cinema</h2>
-                <p class="cat-descripcion">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  corrupti cum dolor doloremque odit sit doloribus illum,
-                  nostrum cumque aliquid!
-                </p>
-              </div>
-              <!-- <figcaption>
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876875/Portafolio/proyectos/dise%C3%B1o-web_zv5bdb.jpg"
+                />
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Les Gai Cinema</h2>
+                  <p class="cat-descripcion">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nisi corrupti cum dolor doloremque odit sit doloribus illum,
+                    nostrum cumque aliquid!
+                  </p>
+                </div>
+                <!-- <figcaption>
       Hola soy el figcaption
     </figcaption> -->
-            </figure>
-            <input
-              class="open"
-              type="radio"
-              id="dos"
-              name="carrusel"
-              aria-hidden="true"
-              hidden=""
-            />
-            <figure>
-              <img
-                src="https://res.cloudinary.com/alexiavilar/image/upload/v1619546959/Portafolio/proyectos/web/web_nvdio2.jpg"
+              </figure>
+              <input
+                class="open"
+                type="radio"
+                id="dos"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
               />
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1619546959/Portafolio/proyectos/web/web_nvdio2.jpg"
+                />
 
-              <div class="cat-desc-container">
-                <h2 class="cat-nombre">Sin título</h2>
-                <p class="cat-descripcion">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  corrupti cum dolor doloremque odit sit doloribus illum,
-                  nostrum cumque aliquid!
-                </p>
-              </div>
-            </figure>
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">Sin título</h2>
+                  <p class="cat-descripcion">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nisi corrupti cum dolor doloremque odit sit doloribus illum,
+                    nostrum cumque aliquid!
+                  </p>
+                </div>
+              </figure>
 
-            <input
-              class="open"
-              type="radio"
-              id="tres"
-              name="carrusel"
-              aria-hidden="true"
-              hidden=""
-            />
-            <figure>
-              <img
-                src="https://res.cloudinary.com/alexiavilar/image/upload/v1619546959/Portafolio/proyectos/web/wearethem_pc75pp.jpg"
+              <input
+                class="open"
+                type="radio"
+                id="tres"
+                name="carrusel"
+                aria-hidden="true"
+                hidden=""
               />
+              <figure class="proyecto">
+                <img
+                  src="https://res.cloudinary.com/alexiavilar/image/upload/v1619546959/Portafolio/proyectos/web/wearethem_pc75pp.jpg"
+                />
 
-              <div class="cat-desc-container">
-                <h2 class="cat-nombre">We are them</h2>
-                <p class="cat-descripcion">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  corrupti cum dolor doloremque odit sit doloribus illum,
-                  nostrum cumque aliquid!
-                </p>
-              </div>
-            </figure>
+                <div class="cat-desc-container">
+                  <h2 class="cat-nombre">We are them</h2>
+                  <p class="cat-descripcion">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nisi corrupti cum dolor doloremque odit sit doloribus illum,
+                    nostrum cumque aliquid!
+                  </p>
+                </div>
+              </figure>
 
-            <label for="tres" class="carrusel-nav anterior uno">›</label>
-            <label for="dos" class="carrusel-nav siguiente uno">‹</label>
-            <label for="uno" class="carrusel-nav anterior dos">›</label>
-            <label for="tres" class="carrusel-nav siguiente dos">›</label>
-            <label for="dos" class="carrusel-nav anterior tres">‹</label>
-            <label for="uno" class="carrusel-nav siguiente tres">›</label>
+              <label for="tres" class="carrusel-nav anterior uno">›</label>
+              <label for="dos" class="carrusel-nav siguiente uno">‹</label>
+              <label for="uno" class="carrusel-nav anterior dos">›</label>
+              <label for="tres" class="carrusel-nav siguiente dos">›</label>
+              <label for="dos" class="carrusel-nav anterior tres">‹</label>
+              <label for="uno" class="carrusel-nav siguiente tres">›</label>
 
-            <ol class="carrusel-dots">
-              <li>
-                <label for="uno" class="dot">•</label>
-              </li>
-              <li>
-                <label for="dos" class="dot">•</label>
-              </li>
-              <li>
-                <label for="tres" class="dot">•</label>
-              </li>
-            </ol>
+              <ol class="carrusel-dots">
+                <li>
+                  <label for="uno" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="dos" class="dot">•</label>
+                </li>
+                <li>
+                  <label for="tres" class="dot">•</label>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
       </div>
-      </div>
 
-      <!-- Ejemplo -->
       <div class="diseno-app" data-categoria="UX-UI">
-        <a href="">
+        <a>
           <img
             src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-app_rdz41w.jpg"
             alt="app"
@@ -647,13 +932,13 @@
             loading="lazy"
           />
         </a>
-        <div class="mascara absolute">
+        <div class="mascara">
           <h3>UX-UI</h3>
         </div>
       </div>
 
       <div class="tipografia" data-categoria="diseño tipográfico">
-        <a href="">
+        <a>
           <img
             src="https://res.cloudinary.com/alexiavilar/image/upload/v1614876874/Portafolio/proyectos/dise%C3%B1o-tipo_kld3un.jpg"
             alt="tipografia"
@@ -661,18 +946,18 @@
             height="450"
             loading="lazy"
           />
+          <div class="mascara">
+            <h3>diseño tipográfico</h3>
+          </div>
         </a>
-        <div class="mascara absolute">
-          <h3>diseño tipográfico</h3>
-        </div>
       </div>
-    </div>
-
-    <div id="about" class="contact-me">
+    </section>
+    <section id="about" class="contact-me">
       <p>Let's talk!</p>
       <p class="contacto">alexiavll@yahoo.com.mx | 5530098787</p>
-    </div>
+    </section>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
-    <script src="script.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
